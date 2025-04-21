@@ -54,7 +54,7 @@ const Block: FC<BlockProps> = ({
       <Rect
         width={block.width}
         height={block.height}
-        fill="#ffffff"
+        fill={block.color || '#ffffff'}
         stroke={selected ? '#bbbbbb' : isConnecting ? '#4B5563' : undefined}
         cornerRadius={7}
         shadowBlur={2}

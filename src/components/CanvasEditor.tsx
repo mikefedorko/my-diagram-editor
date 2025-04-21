@@ -35,7 +35,6 @@ const CanvasEditor: FC = () => {
     resetConnection,
   } = useConnection({ removeConnectionFrom });
 
-  // Кэшируем allPoints
   const allPoints = useMemo(() => blocks.flatMap(getBlockConnectorPoints), [blocks]);
 
   const handleMouseMove = useCallback(

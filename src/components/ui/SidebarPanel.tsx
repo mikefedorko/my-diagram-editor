@@ -1,12 +1,6 @@
 import { FC, useRef } from 'react';
 import { useDiagramIO } from '../../hooks/useDiagramIO';
-
-interface SidebarPanelProps {
-  onExport?: () => void;
-  onImport?: () => void;
-  onColorChange?: (color: string) => void;
-  selectedColor?: string;
-}
+import { useDiagramActions, useDiagramState } from '../../hooks/useDiagramStore';
 
 export const presetColors = [
   '#4F46E5',
@@ -19,13 +13,13 @@ export const presetColors = [
   '#F97316',
   '#22D3EE',
   '#14B8A6',
-  '#6B7280',
-  '#000000',
 ];
 
-const SidebarPanel: FC<SidebarPanelProps> = ({ onColorChange, selectedColor }) => {
+const SidebarPanel: FC = () => {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const { exportToJson, importFromJson } = useDiagramIO();
+  const { globalBlockColor } = useDiagramState();
+  const { setGlobalBlockColor } = useDiagramActions();
 
   return (
     <div className="flex flex-col space-y-3 w-full">
@@ -60,11 +54,11 @@ const SidebarPanel: FC<SidebarPanelProps> = ({ onColorChange, selectedColor }) =
           {presetColors.map((color, index) => (
             <button
               key={`color-${index}`}
-              onClick={() => onColorChange?.(color)}
+              onClick={() => setGlobalBlockColor(color)}
               className="relative w-6 h-6 rounded-full border-none outline-none cursor-pointer hover:opacity-70 transition-opacity"
               style={{ backgroundColor: color }}
             >
-              {selectedColor === color && (
+              {globalBlockColor === color && (
                 <span className="absolute inset-0 flex items-center justify-center text-white text-[10px] font-bold pointer-events-none">
                   ✓
                 </span>

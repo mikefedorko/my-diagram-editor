@@ -38,6 +38,7 @@ interface DiagramStore {
   blocks: DiagramBlock[];
   connections: DiagramConnection[];
   selectedBlockId: BlockId | null;
+  globalBlockColor: string;
 
   actions: {
     setSelectedBlock: (id: BlockId | null) => void;
@@ -46,6 +47,7 @@ interface DiagramStore {
     addConnection: (connection: DiagramConnection) => void;
     removeConnectionFrom: (blockId: BlockId, direction: Direction) => void;
     removeBlockAndConnections: (id: BlockId) => void;
+    setGlobalBlockColor: (color: string) => void;
   };
 }
 
@@ -53,6 +55,7 @@ export const useDiagramStore = create<DiagramStore>((set) => ({
   blocks: defaultBlocks,
   connections: [],
   selectedBlockId: null,
+  globalBlockColor: '#ffffff',
 
   actions: {
     setSelectedBlock: (id) => set({ selectedBlockId: id }),
@@ -72,6 +75,12 @@ export const useDiagramStore = create<DiagramStore>((set) => ({
         newBlocks[index] = { ...newBlocks[index], x, y };
         return { blocks: newBlocks };
       }),
+
+    setGlobalBlockColor: (color) =>
+      set((state) => ({
+        globalBlockColor: color,
+        blocks: state.blocks.map((block) => ({ ...block, color })),
+      })),
 
     addConnection: (connection) =>
       set((state) => ({
@@ -102,6 +111,7 @@ export const useDiagramState = () =>
       blocks: state.blocks,
       connections: state.connections,
       selectedBlockId: state.selectedBlockId,
+      globalBlockColor: state.globalBlockColor,
     }))
   );
 
