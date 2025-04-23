@@ -58,7 +58,7 @@ const Block: FC<BlockProps> = ({
         stroke={selected ? '#bbbbbb' : isConnecting ? '#4B5563' : undefined}
         cornerRadius={7}
         shadowBlur={2}
-        strokeWidth={selected || isConnecting ? 1 : 0}
+        strokeWidth={selected || isConnecting ? 2 : 0}
       />
       <Text
         text={block.icon}

@@ -9,7 +9,8 @@
     "skipLibCheck": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "typeRoots": ["./node_modules/@types", "./@types"]
   },
-  "include": ["src", "src/types", "vite.config.ts", "tailwind.config.js"]
+  "include": ["src", "src/@types", "vite.config.ts", "tailwind.config.js"]
 }
