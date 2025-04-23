@@ -1,15 +1,21 @@
 {
-  "name": "my-diagram-editor",
+  "name": "@mikefedorko/my-diagram-editor",
   "version": "0.1.0",
-  "main": "dist/diagram-editor.cjs.js",
-  "module": "dist/diagram-editor.js",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
   "files": [
-    "dist"
+    "dist/index.cjs.js",
+    "dist/index.cjs.js.map",
+    "dist/index.es.js",
+    "dist/index.es.js.map",
+    "dist/index.d.ts",
+    "dist/index.css"
   ],
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && npm run types",
+    "types": "tsc --emitDeclarationOnly && find dist -type f -not -name 'index.d.ts' -not -name 'index.cjs.js' -not -name 'index.es.js' -not -name 'index.css' -not -name '*.map' -delete && find dist -type d -empty -delete",
     "lint": "eslint . --ext .ts,.tsx --fix",
     "format": "prettier --write ."
   },

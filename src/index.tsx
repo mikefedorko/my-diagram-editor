@@ -1,2 +1,4 @@
-import './index.css'; // Tailwind
-export { default as DiagramEditor } from './DiagramEditor';
+import './index.css';
+import DiagramEditor from './DiagramEditor';
+
+export default DiagramEditor;

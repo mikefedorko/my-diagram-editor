@@ -10,11 +10,14 @@
     "declarationDir": "dist",
     "outDir": "dist",
     "skipLibCheck": true,
-    "emitDeclarationOnly": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
-    "typeRoots": ["./node_modules/@types", "./@types"]
+    "rootDir": "src",
+    "types": ["node"],
+    "noEmit": false,
+    "emitDeclarationOnly": false
   },
-  "include": ["src/index.tsx"]
+  "include": ["src/index.tsx"],
+  "exclude": ["node_modules", "dist"]
 }
