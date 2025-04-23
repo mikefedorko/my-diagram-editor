@@ -14,8 +14,7 @@
   ],
   "scripts": {
     "dev": "vite",
-    "build": "vite build && npm run types",
-    "types": "tsc --emitDeclarationOnly && find dist -type f -not -name 'index.d.ts' -not -name 'index.cjs.js' -not -name 'index.es.js' -not -name 'index.css' -not -name '*.map' -delete && find dist -type d -empty -delete",
+    "build": "vite build",
     "lint": "eslint . --ext .ts,.tsx --fix",
     "format": "prettier --write ."
   },
