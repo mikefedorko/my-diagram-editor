@@ -1,8 +1,12 @@
 {
   "name": "my-diagram-editor",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "version": "0.1.0",
+  "main": "dist/diagram-editor.cjs.js",
+  "module": "dist/diagram-editor.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -10,16 +14,18 @@
     "format": "prettier --write ."
   },
   "dependencies": {
-    "@tailwindcss/vite": "^4.1.4",
-    "@types/node": "^22.14.1",
     "konva": "^9.3.20",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
     "react-konva": "^19.0.3",
     "zustand": "^5.0.3"
   },
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0"
+  },
   "devDependencies": {
     "@eslint/js": "^9.22.0",
+    "@tailwindcss/postcss": "^4.1.4",
+    "@types/node": "^22.14.1",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
     "@typescript-eslint/eslint-plugin": "^6.17.0",

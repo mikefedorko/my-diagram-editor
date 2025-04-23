@@ -6,11 +6,15 @@
     "moduleResolution": "Node",
     "strict": true,
     "jsx": "react-jsx",
+    "declaration": true,
+    "declarationDir": "dist",
+    "outDir": "dist",
     "skipLibCheck": true,
+    "emitDeclarationOnly": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "typeRoots": ["./node_modules/@types", "./@types"]
   },
-  "include": ["src", "src/@types", "vite.config.ts", "tailwind.config.js"]
+  "include": ["src/index.tsx"]
 }
