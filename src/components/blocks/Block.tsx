@@ -48,8 +48,20 @@ const Block: FC<BlockProps> = ({
       draggable={!isConnecting}
       x={block.x}
       y={block.y}
-      onDragMove={(e) => onDragEnd(block.id, e.target.x(), e.target.y())}
-      onDragEnd={(e) => onDragEnd(block.id, e.target.x(), e.target.y())}
+      onDragMove={(e) => {
+        const container = e.target.getStage()?.container();
+        if (container) {
+          container.style.cursor = 'grab';
+        }
+        onDragEnd(block.id, e.target.x(), e.target.y());
+      }}
+      onDragEnd={(e) => {
+        const container = e.target.getStage()?.container();
+        if (container) {
+          container.style.cursor = 'default';
+        }
+        onDragEnd(block.id, e.target.x(), e.target.y());
+      }}
     >
       <Rect
         width={block.width}
